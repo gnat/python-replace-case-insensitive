@@ -1,7 +1,7 @@
 # Case Insensitive replace() for Python
 Case insensitive string replace() alternative for Python 3.
 
-Does not use regex in order to prevent ReDoS attacks.
+Prevents ReDoS attacks by NOT using regex (or re or regular expressions).
 
 * https://en.m.wikipedia.org/wiki/ReDoS
 * https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS
