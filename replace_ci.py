@@ -4,25 +4,22 @@ def replace_ci(data, target, replacement=''):
 		data = str(data)
 		target = str(target)
 		replacement = str(replacement)
+		# Required.
+		if not data or not target:
+			return False
 	except:
 		return False
-	# Requirements.
-	if not all([data, target]):
-		return False
-	# Prepare data.
+	# Cache for speed.
 	data_lower = data.lower()
 	target_lower = target.lower()
 	target_length = len(target)
 	replacement_length = len(replacement)
-	start = 0
+	position = 0
 	# Keep finding target until it does not exist.
-	while (index := data_lower.find(target_lower, start)) != -1:
-		# Remove target.
-		data_lower = data_lower[:index] + data_lower[index+target_length:]
-		data = data[:index] + data[index+target_length:]  
-		# Add replacement.
-		data_lower = data_lower[:index] + replacement + data_lower[index:]
-		data = data[:index] + replacement + data[index:]
+	while (index := data_lower.find(target_lower, position)) != -1:
+		# Add replacement and remove target.
+		data_lower = data_lower[:index] + replacement + data_lower[index+target_length:]
+		data = data[:index] + replacement + data[index+target_length:]
 		# Don't find what we've already replaced.
-		start = index+replacement_length
+		position = index+replacement_length
 	return data
