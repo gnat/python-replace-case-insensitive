@@ -1,5 +1,4 @@
 def replace_ci(data, target, replacement=''):
-	# Sanity.
 	try:
 		data = str(data)
 		target = str(target)
