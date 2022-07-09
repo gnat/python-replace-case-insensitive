@@ -1,6 +1,7 @@
-def str_ireplace(data, target, replacement='', default=False):
+def str_replace_ci(data, target, replacement='', default=False):
 	"""
 	Case-insensitive version of string replace.
+	Equivalent to PHP str_ireplace() in Python.
 	Does not use regex in order to prevent redos attack.
 	Return default (False) if there is an issue.
 	"""
